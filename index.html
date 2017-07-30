@@ -3,7 +3,7 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>Gradient backgrounds - fullPage.js</title>
+	<title>Neela Santosh Kumar | UI Developer</title>
 	<meta name="author" content="Neela Santosh Kumar" />
 	<meta name="description" content="Neela Santosh Profile" />
 	<meta name="keywords"  content="Neela,Santosh,Kumar,NeelaSantoshKumar,Neela Profile" />
@@ -13,6 +13,7 @@
 	<link rel="stylesheet" type="text/css" href="jquery.fullPage.css" />
 	<link rel="stylesheet" type="text/css" href="examples.css" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
@@ -37,7 +38,25 @@
 		text-align:center;
 	}
 
+	.icons-skill i{
+		font-size: 3rem;
+		margin: 30px 30px;
+    	animation: leaves 1s ease-in-out infinite alternate;
+	}
+	@keyframes leaves {
+	    0% {
+	        //transform: rotateY(180deg);
+	        transform: scale(1.0);
+	    }
+	    100% {
+	        //transform: rotateY(360deg);
+	        transform: scale(1.5);
+	    }
+	}
 
+	#typed{
+		font-size: 4em;
+	}
 
 	/* Defining each section background and styles
 	* --------------------------------------- */
@@ -74,6 +93,11 @@
 	#infoMenu li a {
 		color: #fff;
 	}
+	a.icon-link{
+		text-decoration: none;
+		color: inherit;
+	}
+	
 	</style>
 
 	<!--[if IE]>
@@ -85,7 +109,7 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
 	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/85807/typed.js'></script>
+	<script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/85807/typed.js'></script>
 	<script type="text/javascript" src="scrolloverflow.js"></script>
 
 	<script type="text/javascript" src="jquery.fullPage.js"></script>
@@ -93,20 +117,22 @@
 
 	<script type="text/javascript">
 		$(document).ready(function() {
-			$('#fullpage').fullpage();
+			$('#fullpage').fullpage({
+				menu: '#menu',
+				anchors: ['Home', 'About me', 'Skills'],
+				sectionsColor: ['#C63D0F', '#1BBC9B', '#7E8F7C']
+			});
 		});
 	</script>
 	<script type="text/javascript">
 			$(function(){
 				$("#typed").typed({
-					strings: [
-						"Hey,Hi",
-						"I am Neela Santosh Kumar",
-						"I am User Interface Developer"
-					],
+					strings: ["^600 Neela Santosh Kumar.", "^600 a Front end Developer."],
+				    typeSpeed: 0,
+				    startDelay: 1000,
+				    loop: true,
 					// The lower the faster, the higher the slower
-					startDelay: 1000,
-					typeSpeed: 10, 
+					typeSpeed: 25, 
 					cursorChar: "|",
 					backSpeed: 10,
 					backSpeedDelay: 50,
@@ -120,16 +146,56 @@
 	</script>
 </head>
 <body>
-
+<ul id="menu" class="float-right">
+    <li data-menuanchor="home" class="active"><a href="#section0">Home</a></li>
+    <li data-menuanchor="about me"><a href="#section2">About me</a></li>
+    <li data-menuanchor="skills"><a href="#section3">Skills</a></li>
+</ul>
 <div id="fullpage">
-	<div class="section " id="section0"><h1 id="typed"></h1></div>
+	<div class="section" id="section0">
+		<h4>Hey,I am</h4>
+		<span id="typed"></span>
+	</div>
 	<div class="section" id="section2">
-	    <h1>Soft graduated colors</h1>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-6">
+					<h4>About Me</h4>
+					<p class="lead">I am Neela Santosh Kumar, User Interface Developer with 1+ years of experience. I am self learner and motivated person. I can work on web related stuff alone or in a good team. I hope my positive attitude is do and make something new.</p>
+				</div>
+				<div class="col-md-6">
+					<img src="mypic.png" class="img-fluid" alt="Neela Santosh,UI Developer">
+				</div>
+			</div>
+		</div>
 	</div>
 	<div class="section" id="section3">
-		<div class="intro">
-			<h1>Feel free!</h1>
-			<p>Using CSS3 gradients you can play as much as you want with graduated colors</p>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-6">
+					<h4>Skills</h4>
+					<ul class="list-group">
+					  <li class="list-group-item">#HTML5</li>
+					  <li class="list-group-item">#CSS3</li>
+					  <li class="list-group-item">#Bootstrap</li>
+					  <li class="list-group-item">#JavaScript,Jquery,Ajax,JSON</li>
+					  <li class="list-group-item">#MySql</li>
+					  <li class="list-group-item">#AdobeFlash</li>
+					</ul>
+				</div>
+				<div class="col-md-6 mt-5">
+					<div class="col-md-12 icons-skill">
+		              <i class="fa fa-html5" aria-hidden="true"></i>
+		              <i class="fa fa-css3" aria-hidden="true"></i>
+		              <i class="fa fa-code" aria-hidden="true"></i>
+		            </div>
+            		<div class="col-md-12 icons-skill">
+		              <a class="icon-link" href="https://codepen.io/SantoshNeela/pens/public/"><i class="fa fa-codepen" aria-hidden="true"></i></a>
+		              <a class="icon-link" href="https://github.com/neelasantosh"><i class="fa fa-github" aria-hidden="true"></i></a>
+		              <i class="fa fa-database" aria-hidden="true"></i>
+		            </div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
