@@ -60,13 +60,13 @@
 
 	/* Defining each section background and styles
 	* --------------------------------------- */
-	#home{
+	#homecss{
 		background: -webkit-gradient(linear, top left, bottom left, from(#4bbfc3), to(#7baabe));
 		background: -webkit-linear-gradient(#4BBFC3, #7BAABE);
 		background: linear-gradient(#4BBFC3,#7BAABE);
 	}
 
-	#skills{
+	#skillscss{
 		background: -webkit-gradient(linear, top left, bottom left, from(#969ac6), to(#636F8F));
 		background: -webkit-linear-gradient(#969AC6, #636F8F);
 		background: linear-gradient(#969AC6,#636F8F);
@@ -76,7 +76,7 @@
 
  	/*Adding background for the slides
 	* --------------------------------------- */
-	#about{
+	#aboutcss{
 		background: -webkit-gradient(linear, top left, bottom left, from(#7baabe), to(#969ac6));
 		background: -webkit-linear-gradient(#7BAABE, #969AC6);
 		background: linear-gradient(#7BAABE,#969AC6);
@@ -98,6 +98,22 @@
 		color: inherit;
 	}
 	
+	
+	.vertical-text li {
+	  display: block;
+	  vertical-align: top;
+	  transform: translate(0,100%) rotate(-90deg);
+	  transform-origin: 0 0;
+	  white-space: nowrap;
+	  padding-top:25%;
+	  margin-right: 5%
+	}
+
+	.vertical-text li:after {
+	    content: "";
+	    float: left;
+	    margin-top: 100%;
+	}
 	</style>
 
 	<!--[if IE]>
@@ -114,20 +130,22 @@
 
 	<script type="text/javascript" src="jquery.fullPage.js"></script>
 	<script type="text/javascript" src="examples.js"></script>
-
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#fullpage').fullpage({
 				menu: '#menu',
-				anchors: ['Home', 'About', 'Skills'],
-				sectionsColor: ['#C63D0F', '#1BBC9B', '#7E8F7C']
+				anchors: ['Home', 'About', 'Skills', 'Contact'],
+				sectionsColor: ['#C63D0F', '#1BBC9B', '#7E8F7C'],
+				navigationPosition: 'right',
+				navigationTooltips: ['Home', 'About'],
+				showActiveTooltip: false,
 			});
 		});
 	</script>
 	<script type="text/javascript">
 			$(function(){
 				$("#typed").typed({
-					strings: ["^600 Neela Santosh Kumar.", "^600 a Front end Developer."],
+					strings: ["^600 Neela Santosh Kumar.", "^600 A Front End Developer."],
 				    typeSpeed: 0,
 				    startDelay: 1000,
 				    loop: true,
@@ -148,15 +166,22 @@
 <body>
 <ul id="menu" class="float-right">
     <li data-menuanchor="home" class="active"><a href="#Home">Home</a></li>
-    <li data-menuanchor="about me"><a href="#About">About me</a></li>
+    <li data-menuanchor="about"><a href="#About">About me</a></li>
     <li data-menuanchor="skills"><a href="#Skills">Skills</a></li>
+    <li data-menuanchor="contact"><a href="#Contact">Contact</a></li>
 </ul>
 <div id="fullpage">
-	<div class="section" id="home">
-		<h4>Hey,I am</h4>
-		<span id="typed"></span>
+	<div class="section" id="homecss">
+		<div class="container-fluid">
+			<div class="row">
+			<div class="col-md-12 flex-xs-middle">
+				<h4>Hey,I am</h4>
+				<span id="typed"></span>
+			</div>
+			</div>
+		</div>
 	</div>
-	<div class="section" id="about">
+	<div class="section" id="aboutcss">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-6">
@@ -169,7 +194,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="section" id="skills">
+	<div class="section" id="skillscss">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-6">
@@ -178,7 +203,7 @@
 					  <li class="list-group-item">#HTML5</li>
 					  <li class="list-group-item">#CSS3</li>
 					  <li class="list-group-item">#Bootstrap</li>
-					  <li class="list-group-item">#JavaScript,Jquery,Ajax,JSON</li>
+					  <li class="list-group-item">#RequireJs,JavaScript,Jquery,Ajax,JSON</li>
 					  <li class="list-group-item">#MySql</li>
 					  <li class="list-group-item">#AdobeFlash</li>
 					</ul>
@@ -198,8 +223,39 @@
 			</div>
 		</div>
 	</div>
+	<div class="section" id="contactcss">
+		<div class="container-fluid">
+			<div class="row">
+				<div id="googleMap" style="width:100%;height:400px;"></div>
+			</div>
+		</div>
+	</div>
+	<div class="scroll-downs hidden-sm-down">
+  		<div class="mousey">
+    		<div class="scroller"></div>
+  		</div>
+	</div>
 </div>
+<script type="text/javascript">
+	function myMap() {
+		var myCenter = new google.maps.LatLng(17.512278,78.507868);
+		var mapCanvas = document.getElementById("googleMap");
+		var mapOptions = {center: myCenter, zoom: 5,mapTypeControl: true,
+    		mapTypeControlOptions: {
+      			style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+      			position: google.maps.ControlPosition.TOP_CENTER
+    		}};
+		var map = new google.maps.Map(mapCanvas, mapOptions);
+		var marker = new google.maps.Marker({position:myCenter});
+		marker.setMap(map);
+	
+		google.maps.event.addListener(marker,'click',function() {
+	    map.setZoom(9);
+	    map.setCenter(marker.getPosition());
+	  });
+	}
 
-
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxVrqmwxO1gObgf-YY16DtqjkSGBMd61w&callback=myMap"></script>
 </body>
 </html>
